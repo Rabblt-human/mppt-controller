@@ -10,7 +10,13 @@ from lcd_ctrl import update_lcd
 
 def main():
     ctx = factory_instance.first_create()
-    handle_startup_sequence(ctx)
+    started = handle_startup_sequence(ctx)
+
+    if not started:
+        while True:
+            pwm_control(ctx)
+            update_lcd(ctx)
+            time.sleep_ms(100)
 
     while True:
         read_sensor_data(ctx)      # センサー読む
@@ -18,6 +24,6 @@ def main():
         mppt_control_step(ctx)     # MPPT制御します
         pwm_control(ctx)           # PWM制御します
         update_lcd(ctx)            # LCD更新します。
-        time.sleep_ms(3)
+        time.sleep_ms(300)
 
 main()

@@ -1,5 +1,3 @@
-from config import ADC_PIN_BATTERY,ADC_PIN_PANEL_I,ADC_PIN_PANEL_V
-from machine import ADC,Pin
 import context.system_state as system_state
 import context.system_buffer as system_buffer
 import context.io_driver as io_driver

@@ -28,8 +28,8 @@ def pwm_control(ctx) -> None:
         target = state.pwms.applied_duty_u16
 
     # Clamp target
-    if target < config.MPPT_MIN_DUTY:
-        target = config.MPPT_MIN_DUTY
+    if target < 0:
+        target = 0
     elif target > config.MPPT_MAX_DUTY:
         target = config.MPPT_MAX_DUTY
 

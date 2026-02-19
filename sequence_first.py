@@ -19,7 +19,7 @@ def handle_startup_sequence(ctx) -> bool:
     # Display initial message on LCD if available
     if hw_lcd and hw_lcd.alive:
         try:
-            hw_lcd.write(0, "System Booting...")
+            hw_lcd.write(0, "System Booting..") 
             hw_lcd.write(1, "Init Sensors")
         except Exception:
             pass
@@ -63,10 +63,7 @@ def handle_startup_sequence(ctx) -> bool:
                 return False
             # Optionally update LCD with progress
             update_lcd(ctx)
-            try:
-                time.sleep(delay)
-            except AttributeError:
-                time.sleep(delay)
+            time.sleep_ms(int(delay * 1000))
 
     # Final delay to settle
     time.sleep(0.1)
