@@ -22,8 +22,6 @@ These sample counts and trimming parameters can be tuned; they are
 chosen to reject outliers and noise in the ADC readings.
 """
 
-from typing import List
-
 import config
 
 
@@ -44,7 +42,7 @@ class AdcChannels:
         self.panel_i = ADC(Pin(config.ADC_PIN_PANEL_I))
 
 
-def _trimmed_mean(buffer: List[int], drop_low: int, drop_high: int, shift: int) -> int:
+def _trimmed_mean(buffer: list, drop_low: int, drop_high: int, shift: int) -> int:
     """Compute a trimmed mean of the sorted buffer.
 
     Args:

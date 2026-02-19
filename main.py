@@ -21,7 +21,3 @@ def main():
         time.sleep_ms(3)
 
 main()
-
-print("test")
-
-
